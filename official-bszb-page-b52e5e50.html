@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · bszb</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf9f7;
+            color: #1e1e1f;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            padding: 2.5rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 680px;
+            width: 100%;
+        }
+
+        /* 开场短句 · 极小留白 */
+        .opening {
+            margin-bottom: 2rem;
+            border-left: 3px solid #d0cbbc;
+            padding-left: 1.25rem;
+        }
+
+        .opening p {
+            font-size: 1.35rem;
+            font-weight: 350;
+            letter-spacing: 0.02em;
+            color: #2c2c2e;
+            line-height: 1.5;
+        }
+
+        .opening span {
+            display: inline-block;
+            background: #eae7e1;
+            padding: 0.05rem 0.4rem;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* 承接段落 */
+        .intro-block {
+            margin-bottom: 2.6rem;
+        }
+
+        .intro-block p {
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            color: #2f2f30;
+        }
+
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-block a {
+            color: #2d4b3c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b7c5ba;
+            font-weight: 400;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+
+        .intro-block a:hover {
+            color: #1b3428;
+            text-decoration-color: #2d4b3c;
+        }
+
+        /* 标题层级 */
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 470;
+            letter-spacing: -0.01em;
+            margin-top: 2.8rem;
+            margin-bottom: 1.1rem;
+            color: #1d1d1e;
+            border-bottom: 1px solid #e1dbd2;
+            padding-bottom: 0.35rem;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 450;
+            margin-top: 1.8rem;
+            margin-bottom: 0.6rem;
+            color: #282829;
+        }
+
+        /* 特点列表 — 温和卡片式 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.2rem 0 1rem 0;
+        }
+
+        .feature-list li {
+            background: #ffffff;
+            padding: 0.9rem 1.2rem 0.9rem 1.2rem;
+            margin-bottom: 0.7rem;
+            border-radius: 0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02), 0 1px 4px rgba(0, 0, 0, 0.02);
+            border-left: 3px solid #d1cbbc;
+            transition: box-shadow 0.15s, border-color 0.15s;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+
+        .feature-list li:hover {
+            border-left-color: #9aa99b;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .feature-list .term {
+            font-weight: 460;
+            min-width: 5.5rem;
+            color: #1f3c2b;
+            margin-right: 0.75rem;
+        }
+
+        .feature-list .desc {
+            flex: 1;
+            color: #3b3b3d;
+            line-height: 1.6;
+        }
+
+        /* 场景 / 提示 混合区域 */
+        .note-block {
+            background: #f2efe9;
+            padding: 1.5rem 1.8rem;
+            margin: 2rem 0 1.8rem 0;
+            border-radius: 0;
+            border: 1px solid #e3ddd1;
+        }
+
+        .note-block p {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: #2a2a2c;
+        }
+
+        .note-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .note-block strong {
+            font-weight: 500;
+            color: #1b3a27;
+        }
+
+        /* FAQ 摘要 极简 */
+        .faq-mini {
+            margin-top: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dotted #d6cfc3;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 460;
+            font-size: 0.98rem;
+            margin-bottom: 0.25rem;
+            color: #1d2a23;
+        }
+
+        .faq-a {
+            font-size: 0.92rem;
+            color: #3f3f41;
+            line-height: 1.6;
+        }
+
+        .faq-a a {
+            color: #2d4b3c;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #bcc9bd;
+        }
+
+        .faq-a a:hover {
+            text-decoration-color: #1f3529;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            margin-top: 3.2rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #e2dbd0;
+            font-size: 0.9rem;
+            color: #545454;
+            line-height: 1.7;
+        }
+
+        .closing a {
+            color: #2d4b3c;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b7c3b4;
+        }
+
+        .closing a:hover {
+            text-decoration-color: #1f3529;
+        }
+
+        /* 响应式 */
+        @media (max-width: 520px) {
+            body {
+                padding: 1.8rem 1rem;
+            }
+
+            .opening p {
+                font-size: 1.15rem;
+            }
+
+            .feature-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .feature-list .term {
+                margin-bottom: 0.15rem;
+            }
+
+            .note-block {
+                padding: 1.2rem 1.2rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .opening p {
+                font-size: 1rem;
+            }
+
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        <p>一个资源入口的定位方式，常常比资源本身更值得先厘清。<span>bszb</span> 正是这样一处指向。</p>
+    </div>
+
+    <!-- 承接段落 · 从指南和提醒切入 -->
+    <div class="intro-block">
+        <p>在接触任何在线服务或信息聚合之前，明确它的实际用途与边界，是减少误读的第一步。<a href="https://official-bszb.com">bszb</a> 所关联的站点，提供了一类整理后的内容索引与访问途径。将其理解为一个结构化的导航起点，比赋予它宽泛的定义更符合其实际角色。</p>
+        <p>使用这类地址时，值得建立两个基本习惯：一是留意当前访问的环境是否安全，二是主动确认所获取信息的更新日期。一个地址本身不承诺内容质量，但合理的访问习惯能帮助你更好地利用它。</p>
+    </div>
+
+    <!-- 特点列表 -->
+    <h2>· 站点特征简述</h2>
+    <ul class="feature-list">
+        <li>
+            <span class="term">定位</span>
+            <span class="desc">作为信息汇集与分类指引，不对具体内容做二次加工或价值评判。</span>
+        </li>
+        <li>
+            <span class="term">结构</span>
+            <span class="desc">采用扁平化目录，减少层级嵌套，便于快速定位目标区块。</span>
+        </li>
+        <li>
+            <span class="term">访问</span>
+            <span class="desc">通过标准 HTTPS 协议，链接指向明确，不依赖额外插件或重定向链。</span>
+        </li>
+        <li>
+            <span class="term">维护</span>
+            <span class="desc">定期调整链接有效性与分类合理性，但不对第三方内容负责。</span>
+        </li>
+    </ul>
+
+    <!-- 场景 + 提示 融合区 -->
+    <div class="note-block">
+        <p><strong>适用场景举例：</strong>当你需要寻找某个主题的相关资源入口，或希望在不使用搜索引擎的情况下快速接触一批预先筛选过的参照链接时，<a href="https://official-bszb.com" style="text-decoration: underline; text-underline-offset: 2px;">bszb</a> 可作为起点之一。它并不试图取代搜索工具，而是提供另一种浏览的节奏。</p>
+        <p><strong>访问提醒：</strong>即便来源可靠，也建议对每一条具体链接进行独立验证。注意页面是否强制跳转、是否存在非预期的脚本加载。保持浏览器与系统处于更新状态，可以降低多数常见风险。</p>
+    </div>
+
+    <!-- FAQ 摘要  · 极简要义 -->
+    <div class="faq-mini">
+        <h3>常见疑问摘要</h3>
+
+        <div class="faq-item">
+            <div class="faq-q">这个地址与普通导航页有何不同？</div>
+            <div class="faq-a">它更侧重简洁的聚合，不插入广告或排名机制，也不收集用户的浏览行为。如果你希望减少信息噪音，可以把它当作一个安静的起点。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">内容更新频率如何？</div>
+            <div class="faq-a">没有固定周期，但失效链接会较快处理。建议定期重新访问以获取最新索引，而不是长期依赖本地缓存。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">是否需要注册或登录？</div>
+            <div class="faq-a">不需要。所有索引内容均以公开方式呈现，不涉及用户账户系统。直接通过 <a href="https://official-bszb.com">bszb</a> 即可浏览。</div>
+        </div>
+    </div>
+
+    <!-- 温和结尾  -->
+    <div class="closing">
+        <p>一个地址可以是一把钥匙，但门后面的空间仍需要你自己去观察和判断。希望 <a href="https://official-bszb.com">bszb</a> 能在你需要时，提供一个没有干扰的索引起点。保持审慎，保持好奇。</p>
+        <p style="margin-top: 0.6rem; font-size: 0.85rem; color: #6a6a6c;">—— 本篇内容仅作概述，不构成任何形式的担保或推荐。</p>
+    </div>
+
+</div>
+</body>
+</html>
