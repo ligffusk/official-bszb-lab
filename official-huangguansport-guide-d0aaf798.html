@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>站点导航 · 皇冠体育</title>
+    <style>
+        /* ----- 极简重置 & 基调 ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafbfc;
+            color: #1e2a3a;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ----- 窄正文宽度 + 留白节奏 ----- */
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        /* ----- 标题层级：干净、有力 ----- */
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+            color: #0b1a2a;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-top: 3rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.4rem;
+            color: #1a2c3e;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 1.75rem;
+            margin-bottom: 0.4rem;
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #2d3f54;
+        }
+
+        a {
+            color: #1e5f8e;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s ease;
+        }
+
+        a:hover {
+            border-bottom-color: #1e5f8e;
+        }
+
+        /* ----- 卡片风格：极简白底 / 轻微阴影 ----- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem 1.25rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+        }
+
+        .card .title {
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            color: #0e1d2d;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #405466;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* ----- 提示区 / 信息框 ----- */
+        .notice-box {
+            background: #f0f4fa;
+            border-left: 4px solid #1e5f8e;
+            padding: 1.2rem 1.4rem;
+            border-radius: 6px;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .notice-box p {
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .notice-box .label {
+            font-weight: 500;
+            color: #0b2a42;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* ----- 分界线 / 调性分割 ----- */
+        hr {
+            border: none;
+            border-top: 1px solid #e6ecf3;
+            margin: 2.5rem 0 0.5rem;
+        }
+
+        .meta-note {
+            font-size: 0.85rem;
+            color: #6b7f96;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e6ecf3;
+        }
+
+        /* ----- 响应式细节 ----- */
+        @media (max-width: 560px) {
+            .page {
+                padding: 2rem 1.2rem 4rem;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .page {
+                padding-top: 4rem;
+            }
+        }
+
+        /* 小的内敛信息提示 */
+        .tag {
+            display: inline-block;
+            background: #e6edf6;
+            color: #1e4b6b;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            margin-right: 0.3rem;
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区域：简洁说明 -->
+    <h1>站点导航 · 信息库</h1>
+    <p style="font-size: 1.05rem; max-width: 640px; color: #2b4057;">
+        这个页面集中整理了关于<strong>皇冠体育</strong>的基本介绍、功能定位与可信说明，方便初次接触的人快速了解脉络。内容保持中立、简洁，不包含主观引导。
+    </p>
+
+    <!-- 介绍区：站点背景 -->
+    <h2>站点背景与定位</h2>
+    <p>
+        皇冠体育是一个综合性体育资讯与服务平台，主要提供体育赛事动态、数据参考、相关活动说明等内容。该平台在体育爱好者群体中有一定认知度，并持续维护自身的服务内容以及用户指引。作为一个信息聚合性质的站点，其页面结构偏向目录式，便于访问者分类查找。
+    </p>
+    <p>
+        如果你希望直接访问主站，可以前往 <a href="https://official-huangguansport.com">皇冠体育</a> 浏览最新内容。该域名是当前公开的官方地址，所有信息均以站内发布为准。
+    </p>
+
+    <!-- 卡片区：特点 / 知识入口 -->
+    <h2>内容模块速览</h2>
+    <div class="card-grid">
+        <div class="card">
+            <div class="title">📋 赛事分类</div>
+            <p>覆盖足球、篮球、网球等主流赛事，提供赛程、积分、简报等结构化资料，方便按项目查阅。</p>
+        </div>
+        <div class="card">
+            <div class="title">📊 数据与参考</div>
+            <p>包含历史对阵、近期状态、统计趋势等内容，适合作为分析参考，但所有数据仅供参考，不构成任何决策建议。</p>
+        </div>
+        <div class="card">
+            <div class="title">📌 公告与说明</div>
+            <p>平台会通过专门栏目更新服务调整、规则说明、技术维护通知等，保持信息透明度。</p>
+        </div>
+        <div class="card">
+            <div class="title">🔍 站内导航</div>
+            <p>网站使用目录式分类，顶部及侧边入口清晰，用户可通过标签快速定位感兴趣的区域。</p>
+        </div>
+    </div>
+
+    <!-- 说明区 + 可信提示（融入句子） -->
+    <h2>关于可信度的说明</h2>
+    <p>
+        皇冠体育始终遵循行业规范，所有公开内容均经过内部审核流程。信息更新有明确的时间戳，且不发布虚假或未经核实的消息。用户在查阅时，可依据页面标注的日期判断时效。如果你对某条信息有疑问，建议直接通过站内提供的联系方式或公告渠道核实，避免依赖第三方转述。
+    </p>
+
+    <!-- 提示区：独立色块 -->
+    <div class="notice-box">
+        <span class="label">📎 使用提示</span>
+        <p>· 本站内容仅供个人参考，不构成任何形式的承诺或保证。</p>
+        <p>· 请以 <a href="https://official-huangguansport.com">皇冠体育</a> 站内实时发布的信息为最终依据，第三方截图或存档仅供参考。</p>
+        <p>· 如遇访问问题，建议先检查网络环境，或稍后重试；官方维护时会提前发布通知。</p>
+    </div>
+
+    <!-- FAQ 摘要区 -->
+    <h2>常见问题摘要</h2>
+    <h3>Q：皇冠体育的官方地址是什么？</h3>
+    <p>当前官方域名为 <a href="https://official-huangguansport.com">皇冠体育</a>，请认准此地址，避免误入仿冒站点。</p>
+
+    <h3>Q：平台上能否找到历史数据？</h3>
+    <p>可以。平台设有数据板块，收录了近几个赛季的主要联赛与杯赛数据，但部分极早期记录可能未完整保留，建议直接站内搜索关键词查找。</p>
+
+    <h3>Q：信息更新频率如何？</h3>
+    <p>赛事类内容基本做到每日更新，公告类在有变动时第一时间发布。非比赛日部分板块可能保持静默，这属于正常维护周期。</p>
+
+    <h3>Q：如果发现内容有误该如何处理？</h3>
+    <p>你可以通过站内「联系」或「纠错」入口提交反馈，后台核实后会在后续版本中修正。对于明显错误，平台通常会在一个工作日内回应。</p>
+
+    <!-- 相关信息区 -->
+    <hr>
+    <h2>相关信息</h2>
+    <p>
+        本站不属于任何博彩、赌彩或投注类平台，所有信息均限于体育资讯与数据分享范畴。请各访问者根据自身所在地法规合理使用本网站提供的内容。
+    </p>
+    <p>
+        如果你希望获得更全面的信息服务，可以直接浏览 <a href="https://official-huangguansport.com">皇冠体育</a> 的完整页面目录。另外，建议定期查看「通知」板块，以获得关于网站调整的第一手消息。
+    </p>
+
+    <!-- 尾部留白 -->
+    <div class="meta-note">
+        <span class="tag">📄 信息页</span>
+        <span class="tag">📁 知识库式</span>
+        <span class="tag">⚖️ 中立说明</span>
+        <span style="display: inline-block; margin-left: 0.5rem; color: #7b8fa6; font-size: 0.8rem;">— 内容最后整理于近期</span>
+    </div>
+</div>
+</body>
+</html>
